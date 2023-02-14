@@ -37,7 +37,7 @@ To use the `pulsar-operator` chart to deploy BookKeeper Controller, ZooKeeper Co
     helm fetch streamnative/pulsar-operator --untar
     cd pulsar-operator
     [edit Chart.yaml to allow your newer version]
-    helm install pulsar-operator --namespace demo-sn pulsar-operator .
+    helm install pulsar-operator --namespace <k8s-namespace> pulsar-operator .
     ```
 
 4. Verify that the `pulsar-operator` chart is installed successfully.
@@ -99,4 +99,4 @@ https://yuweisung.medium.com/streamnative-pulsar-operator-tutorial-part-1-7fbbbb
 
 ## License
 
-This chart installs both open source and commercial software. Pulsar, Zookeeper and Bookeeper are open source and their respective licenses are distributed with their products. The Stream Native operator is commercial software and is distributed under the terms of the free-of-charge Stream Native Community License. Find more details at <link>.
+This chart installs both open source and commercial software. Pulsar, Zookeeper and Bookeeper are open source and their respective licenses are distributed with their products. The Stream Native operator is commercial software and is distributed under the terms of the free-of-charge Stream Native Community License. Find more details at [add link to community license].
