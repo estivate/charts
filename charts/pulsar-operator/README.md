@@ -18,13 +18,29 @@ To use the `pulsar-operator` chart to deploy BookKeeper Controller, ZooKeeper Co
     kubectl create namespace <k8s-namespace>
     ```
 
-2. Install the `pulsar-operator` chart.
+2. Add the Stream Native repo.
+
+    ```
+    helm repo add streamnative https://charts.streamnative.io
+    helm repo update
+    ```
+
+3. Install the `pulsar-operator` chart.
 
     ```
     helm install pulsar-operators --namespace <k8s-namespace>  streamnative/pulsar-operator
     ```
 
-3. Verify that the `pulsar-operator` chart is installed successfully.
+    If you are using a newer version of Kubernetes that Stream Native has not officially tested yet, download and edit the chart to include it.
+
+    ```
+    helm fetch streamnative/pulsar-operator --untar
+    cd pulsar-operator
+    [edit Chart.yaml to allow your newer version]
+    helm install pulsar-operator --namespace demo-sn pulsar-operator .
+    ```
+
+4. Verify that the `pulsar-operator` chart is installed successfully.
 
     ```
     kubectl get po -n <k8s-namespace>
@@ -74,3 +90,13 @@ spec:
 `appVersion`: The version of the application image that the chart contains. It will be changed only when the operator image bumps a new version.
 
 `kubeVersion`: The range of compatible Kubernetes versions. 
+
+## Next Steps
+
+If you're new to Pulsar, this series of blog posts continue from the install process through sending and recieving messages with Pulsar.
+
+https://yuweisung.medium.com/streamnative-pulsar-operator-tutorial-part-1-7fbbbb07397e
+
+## License
+
+This chart installs both open source and commercial software. Pulsar, Zookeeper and Bookeeper are open source and their respective licenses are distributed with their products. The Stream Native operator is commercial software and is distributed under the terms of the free-of-charge Stream Native Community License. Find more details at <link>.
